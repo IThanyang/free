@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Reset.css">
+    <link rel="stylesheet" href="Style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="Wrap" id="W">
+        <div class="Nav">
+            &nbsp; &nbsp; &nbsp;<img src="img/1.png">
+        </div>
+        <div class="Pair">
+            <h1>玩家配比</h1>
+        </div>
+        <div class="Num">
+            <div>
+                <div class="glyphicon glyphicon-ice-lolly">&nbsp; </div>
+                杀手&nbsp;<span id="civ"></span>人
+            </div>
+            <div>
+                <div class="glyphicon glyphicon-ice-lolly-tasted">&nbsp; </div>
+                平民&nbsp;<span id="kil"></span>人
+            </div>
+            <div></div> <!--占位嘛 -->
+        </div>
+        <div class="Main">
+           <div class="Main-1">
+               <span style="font-size: 2rem"> 请输入玩家数量</span>
+               <input id="Int1" class="int1" type="number" onchange="A()"/>
+               <span style="color: #fab344; font-size: 2rem">玩家数量为4-18</span>
+           </div>
+            <button id="but" type="button" class="btn btn-warning btn-c">
+                <span>去发牌</span>
+            </button>
+        </div>
+    </div>
+    <script src="http://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <script src="data.js"></script>
+    <script src="jquery-3.2.0.min.js"></script>
+</body>
+</html>

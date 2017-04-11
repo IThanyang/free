@@ -1,0 +1,151 @@
+@charset "UTF-8";
+* {
+  outline: none;
+}
+.Wrap {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.Nav {
+  width: 100%;
+  background: #29bde0;
+  padding: 10px 0;
+}
+.Nav span {
+  font-size: 5rem;
+  color: aliceblue;
+}
+.Nav img {
+  width: 4%;
+}
+h1 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+.Pair {
+  border-bottom: solid 1px #c9c9c9;
+  text-align: center;
+  line-height: 2.5rem;
+  width: 98%;
+  margin: 0 auto;
+  padding: 3% 0;
+  background: white;
+}
+.Num {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: solid 1px #c9c9c9;
+  margin: 0 auto;
+  width: 98%;
+  background: white;
+  padding-bottom: 50%;
+  margin-top: 1%;
+}
+.Num span {
+  font-size: 2rem;
+  line-height: 5rem;
+}
+input,
+value {
+  text-align: center;
+}
+.int1 {
+  border: none;
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+  color: #fab344;
+}
+.Main {
+  width: 98%;
+  margin: 0 auto;
+  background: white;
+  padding-top: 20%;
+  margin-bottom: 1%;
+}
+.Main .Main-1 {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  margin: 0 auto;
+}
+/* 页面二的CSS*/
+.btn-c {
+  width: 98%;
+  padding: 2% 0;
+  font-size: 2rem;
+}
+.Wrap-1{
+  display: none;
+}
+.Wrap-1{
+  width:100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #29bde0;
+  padding-bottom: 50px;
+}
+.head{
+  width:90%;
+  margin: 0 auto;
+  font-size: 2rem;
+  color: white;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.head img{
+  width: 4%;
+}
+.main{
+  background: #ffedc5;
+  width:85%;
+  margin: 10% auto;
+  text-align: center;
+  position: relative;
+}
+.op-img{
+  display: none;
+}
+.main img{
+  width: 80%;
+  margin: 40% 0;
+}
+.o{
+  width: 8rem;
+  height:8rem;
+  background: white;
+  border-radius: 50%;
+  border: solid 2px #ffedc5;
+  position: absolute;
+  top: -5%;
+  right: 40%;
+  display: flex;
+  align-items: center;
+}
+.o span{
+  font-size: 4.5rem;
+  color:red;
+  margin: auto ;
+}
+.btn-c {
+  width: 85%;
+  padding: 2% 0;
+  font-size: 2rem;
+  margin-left: 7%;
+}
+@media screen and (max-width: 650px) {
+  .Main-1 {
+    width: 90%!important;
+  }
+  html {
+    font-size: 50%;
+  }
+}
+@media screen and (max-width: 568px) {
+  html {
+    font-size: 40%;
+  }
+}

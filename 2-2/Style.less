@@ -1,0 +1,100 @@
+@charset "UTF-8";
+*{
+  outline: none;
+}
+@wh: 100%;
+.mg(0){
+  margin: 0 auto;
+}
+.wh(m){
+  width: 98%;
+  .mg(0);
+  background: white;
+}
+.bd(s){
+  border-bottom: solid 1px #c9c9c9;
+}
+.Wrap{
+  width: @wh;
+  max-width: 600px;
+  .mg(0);
+}
+.Nav{
+  width: @wh;
+  background: #29bde0;
+  padding: 10px 0;
+  span{
+      font-size: 5rem;
+      color: aliceblue;
+  }
+  img{
+    width: 4%;
+  }
+}
+h1{
+  font-size: 2rem;
+  margin-top: 0;
+}
+.Pair {
+  .bd(s);
+  text-align: center;
+  line-height: 2.5rem;
+  width: 98%;
+  .mg(0);
+  padding: 3% 0;
+  background: white;
+}
+.Num{
+  display: flex;
+  justify-content: space-around;
+  .bd(s);
+  .mg(0);
+  width: 98%;
+  background: white;
+  padding-bottom: 50%;
+  margin-top: 1%;
+  span{
+    font-size: 2rem;
+    line-height: 5rem;
+  }
+}
+input,value{
+  text-align: center;
+}
+.int1{
+  border: none;
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+  color: #fab344;
+}
+.Main{
+  .wh(m);
+  padding-top: 20%;
+  .Main-1{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    .mg(0);
+  }
+  .btn-c{
+    width: 98%;
+    padding: 2% 0;
+    font-size: 2rem;
+    margin-top: 30%;
+  }
+  margin-bottom: 1%;
+}
+@media screen and( max-width: 650px){
+  .Main-1{
+    width: 90%!important;
+  }
+  html{
+    font-size: 50%;
+  }
+}
+@media screen and(max-width: 568px) {
+  html{
+    font-size: 40%;
+  }
+}
