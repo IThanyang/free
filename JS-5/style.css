@@ -1,0 +1,31 @@
+body{
+	background-image:url(img/1.png);
+	background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+    min-height: 426px;
+}
+#bac{
+	display: flex;
+	margin: 30vh auto;
+	background: #d4d8e1;
+	width: 60rem;
+	height: 45%;
+}
+#Login_box{
+	margin: 13vh auto;
+	position: relative;
+}
+.btn{
+	background: #03a9f4;
+	padding: 1% 25rem;
+	display: flex;
+	margin: 11% auto;
+}
+.sp{
+	position:absolute;
+	top: -11vh; 
+	left: 29vh;
+	color: #03a9f4;
+	font-size: 2.5rem; 
+}

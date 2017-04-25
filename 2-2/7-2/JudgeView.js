@@ -10,10 +10,16 @@ for (var i = 0; i < Nn.length; i++) {
                         "<div class='box-identify'>"+
                            Nn[i]+
                         "</div>" +
-                            "<div class='box-number'> "
+                        "<div class='box-number'> "
                             + (i + 1) + "号" +
                         "</div>" +
                     "</div> " +
                 "</div>";
     $(".A").append(box);
-}
+}   
+$(".food-but").click(function()
+ {
+    location.href="See.html"
+ })
+    oNn= JSON.stringify(Nn);
+    localStorage.sth = oNn;

@@ -8,6 +8,7 @@
     <link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Reset.css">
+    <link rel="stylesheet" type="text/css" href="style-2.css">
     <title>See</title>
     <style>
         body{
@@ -99,11 +100,18 @@
             margin: 0 auto;
             border: solid 2px #ccc;
         }
-        .Day-see{
+        .Day-see,.Day-see1,.Day-see2,.Day-see3{
             width: 90%;
             margin: 3vh auto;
             padding: 3vh 0;
             background: #29bde0;
+            text-align: center;
+        }
+        .gc{
+            background: red;
+            width: 90%;
+            margin: 3vh auto;
+            padding: 3vh 0;
             text-align: center;
         }
     </style>
@@ -112,7 +120,7 @@
 <div class="wrap">
         <div class="head">
            <img src="img/1.png">
-            <span>法官台本</span>
+            <span class="kil-sp"></span>
             <span style="font-size: 3.5rem">X</span>
         </div>
     <div class="OneDay">
@@ -125,21 +133,18 @@
                 <div class="triangle"></div>
                 <div class="Day-see">杀手杀人</div>
             </div>
-            <div class="game">
+            <div class="game1">
                 <div class="triangle"></div>
-                <div class="Day-see">杀手杀人</div>
+                <div class="Day-see1">亡灵发表遗言</div>
             </div>
-            <div class="game">
+            <div class="game2">
                 <div class="triangle"></div>
-                <div class="Day-see">杀手杀人</div>
+                <div class="Day-see2">玩家依次发言</div>
             </div>
-            <div class="game">
+            <div class="game3">
                 <div class="triangle"></div>
-                <div class="Day-see">杀手杀人</div>
+                <div class="Day-see3">全名投票</div>
             </div>
-            <!--<div class="Day-see">亡灵发表遗言</div>-->
-            <!--<div class="Day-see">玩家依次发言</div>-->
-            <!--<div class="Day-see">全名投票</div>-->
         </div>
     </div>
     <div class="btn">
@@ -149,6 +154,22 @@
         <button class="button-right">法官日志</button>
     </div>
 </div>
-<script src=""></script>
+<div class="w mw mg oh S">
+        <div class="df pr a-i-c oh bc-b">
+            <img class="head-img" src="img/1.png">
+            <span class="bc-b mg" style="font-size: 3.5rem">杀手杀人</span>
+            <img class="head-img2" src="img/2.png">
+        </div>
+        <div class="top">
+            <span class="top-span">大家请投票</span>
+        </div>
+        <div id="Box" class="bc-b w oh pr A" style="padding-bottom: 100%;">
+            <div class="fooder">
+                <button id="but" class="food-but" type="sumit">开始游戏</button>
+            </div>
+        </div>
+<script src="See.js"></script>
+<script src="vote.js"></script>
+<script src="jquery-3.2.0.min.js"></script>
 </body>
 </html>
