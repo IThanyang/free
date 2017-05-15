@@ -4,6 +4,9 @@
   line-height: 6rem;
   background: #687693;
 } */
+h1,h2{
+  color: #fff;
+}
 html{
   height: 100%;
 }
@@ -19,7 +22,7 @@ body{
   padding: 2% 0 ;
 }
 .nav-c{
-  background: #00d5c9!important;
+  background: #232A3A!important;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,17 +53,84 @@ h3 {
   background: #fff!important;
   border: none!important;
 }
-.btn{
-  margin-top: 3%;
-  float: right;
-}
 .main{
   margin-top: 3%;
-}
-.main-top{
-  display: flex;
 }
 .con{
   height: 10rem;
   border: solid 0.5px ;
+}
+.word-spacing-25{
+  word-spacing:25px;
+}
+.form-horizontal.form-group {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.container{
+  width: 100%!important;
+}
+.panel-heading{
+     color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+};
+//上传图片 按钮美化CSS
+.File {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    line-height: 20px;
+}
+.File input {
+    position: absolute;
+    font-size: 20px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.File:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+.a-upload {
+    padding: 2%;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #fff;
+    background: #337ab7;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #337ab7;
+    border-color: #ccc;
+    text-decoration: none
+}
+.td_tr{
+  display: none;
 }

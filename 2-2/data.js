@@ -37,7 +37,9 @@ function A() {
         return 0.5 - Math.random()
     })
      console.log(Nn);
-    oNn= JSON.stringify(Nn);
-    localStorage.sth = oNn;
+   /* oNn= JSON.stringify(Nn);
+    localStorage.sth = oNn;*/
+    oNn = JSON.stringify(Nn);
+    sessionStorage.arrTostring = oNn;//存入
     console.log("数组变成字符串存储" + Nn);
 }

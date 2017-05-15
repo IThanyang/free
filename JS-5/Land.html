@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -9,18 +9,22 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Land</title>
 </head>
-<body>
+<body ng-app="myAPP" ng-controller="myCtrl">
 	<div id="bac">
 		<div id="Login_box">
 			<span class="sp">喝我水站后台登陆</span>
-			<input id="int1" type="text" class="form-control int1" placeholder="账号"/>
-			<input id="int2" type="password" class="form-control int2" placeholder="秘密"/>
-			<button class="btn">
+			<input id="int1" type="text" class="form-control int1" placeholder="账号" ng-model="Uname"/>
+			<input id="int2" type="password" class="form-control int2" placeholder="秘密" ng-model="Upwd"/>
+			<div ng-model="red" class="red">
+				{{red}}
+			</div>
+			<button class="btn"  ng-click="getValue()">
 				登陆
 			</button>
 		</div>
 	</div>
-	<script src="style.js"></script>
-	<script src="jquery-3.2.0.min.js"></script>	
+	<script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+    <script src="style.js"></script>
 </body>
 </html>

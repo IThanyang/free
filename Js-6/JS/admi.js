@@ -1,4 +1,4 @@
-var App=angular.module('myApp',[])
+/*var App=angular.module('myApp',[])
 App.controller('mycon', function($scope,$http) {
     $http({
         method:'GET',
@@ -12,3 +12,4 @@ App.controller('mycon', function($scope,$http) {
 
     })
 });
+*/

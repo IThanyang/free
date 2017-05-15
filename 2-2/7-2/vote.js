@@ -1,24 +1,18 @@
-/**
- * Created by 韩阳 on 2017/4/12.
- */
-oNn = localStorage.sth;
-Nn = JSON.parse(oNn);
-console.log("读取字符串再转为数组" + oNn + "长度"+Nn.length);
-for (var i = 0; i < Nn.length; i++) {
-    var box = "<div class='box'> " +
-                    "<div class='box-top'>" +
-                        "<div class='box-identify'>"+
-                           Nn[i]+
-                        "</div>" + 
-                            "<div class='box-number'>"
-                            + (i + 1) + "号" +
-                        "</div>" +
-                    "</div> " +
-                "</div>";
-    $(".A").append(box);
-}
- /*   $(".food-but").click(function()
-        {
-        location.href = "See.html"
-        })*/
-$(".box")
+//定义事件加载函数
+function addLoadEvent(func) {
+	var oldonload=window.onload;
+	if (typeof window.onload!='function') {
+		window.onload=func;
+	}else{
+		window.onload=function() {
+			oldonload();
+			func();
+		}
+	}
+};
+$('.game1').click(function() {
+    alert('请亡灵发言');
+});
+$('.game2').click(function() {
+    alert('请玩家依次发言');
+});

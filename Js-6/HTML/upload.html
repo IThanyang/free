@@ -1,0 +1,118 @@
+<div class="panel-heading">
+	<strong>新增Article</strong>
+</div>
+<form id="form1">
+<div class="container panel-body">
+	<div class="row">
+		<div class="col-md-10">
+			<div class="form-group">
+				<label class="control-label col-md-2">
+					标题名称
+				</label>
+				<div class="col-md-8">
+					<input type="type" class="form-control">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10">
+			<div class="form-group">
+				<label class="control-label col-md-2">
+					类型
+				</label>
+				<div class="col-md-4">
+					 <select class="form-control" ng-model='myVar' ng-init="myVar = files ">
+						<option value="">请选择</option>
+						<option value="">首页Banner</option>
+						<option value="">找职位Banner</option>
+						<option value="">找精英Banner</option>
+						<option value="">行业大图</option>
+					 </select>
+				</div>
+				<div class="col-md-4 change" style="display: none;" ng-if="myVar">
+					 <select class="form-control">
+						<option value="">请选择</option>
+						<option value="">移动物联网</option>
+						<option value="">电子商务</option>
+						<option value="">企业服务</option>
+						<option value="">020</option>
+						<option value="">教育</option>
+						<option>金融</option>
+						<option>游戏</option>
+					 </select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10">
+			<div class="form-group">
+				<label class="control-label col-md-2">
+					说明
+				</label>
+				<div class="col-md-8">
+					<input type="type" class="form-control">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10">
+			<div class="form-group">
+				<label class="control-label col-md-2">
+					跳转连接
+				</label>
+				<div class="col-md-8">
+					<input type="type" class="form-control">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10">
+			<div class="form-group">
+				<label class="col-md-2">
+					配图
+				</label>
+				<div class="col-md-8">
+					<form id="uploadForm" method="POST" action="upload" enctype="multipart/form-data">
+						<a href="javascript;" class="a-upload">
+    						<input type="file" name="" id="file" accept="image/jpeg,image/png" onchange="angular.element(this).scope().upload(this.files)">点击这里上传文件
+						</a>
+					</form>
+				</div>
+				<img alt="配图预览" id="showHere" src='' style="width: 15%;">
+			</div>
+		</div>
+	</div>
+</div>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>图片名</td>
+			<td>文件大小</td>
+			<td>进度</td>
+			<td>操作</td>
+			<td>操作</td>
+		</tr>
+	</thead>
+	<tbody id="td_tr" class="td_tr">
+		<tr>
+			<td>q</td>
+			<td>q</td>
+			<td>
+				<progress id="myProgress" value="" max="100" style="width: 70%"> <!-- 进度条-->
+				</progress>
+			</td>
+			<td>q</td>
+			<td>
+				<button class="btn btn-success" ng-click="Upload_immediately()">上传</button>
+				<button class="btn btn btn-danger" ng-click="Delete()">删除</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</form>
+<button class="btn btn-success" ng-click="Submit()">立即提交</button>
+<button class="btn btn-success">存为草稿</button>

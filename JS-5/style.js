@@ -1,13 +1,46 @@
+var App=angular.module("myAPP",[]);
+App.controller('myCtrl',function($scope,$http){
 
-var int1 = $("#int1").val();
-var	int2= $("#int2").val();
-var request=new XMLHttpRequest();
-	request.open("GET","carrots-admin-ajax/a/login")//true是默认的
-	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	/*request.send("neme=+int1&pwd=+int2");*/
-$(".btn").click=function() 
-	{	
-		if (request.readyState===4&&request.status===200) {
-			request.requestText
-		}	
-	}
+    $scope.Uname="";
+
+    $scope.Upwd="";
+
+    $scope.red="";
+
+$scope.getValue=function(){
+
+$http({
+
+method: 'POST',
+
+url: '/carrots-admin-ajax/a/login',
+
+data:"name="+ $scope.Uname+"&pwd="+$scope.Upwd,
+
+headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+
+}).then(function successCallback(response){
+
+var obj=response.data;
+
+    if (obj.message=="success") {
+    location.href="http://localhost/JS-6/HTML/welcome.html#!/Home"
+    }
+    else{
+
+    $scope.red=response.data.message;
+}
+
+/*  function errorCallback(response) {
+
+            $scope.red=response.data.message;
+
+             请求失败执行代码
+
+        }*/
+
+})
+
+}
+
+})

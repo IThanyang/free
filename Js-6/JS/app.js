@@ -1,7 +1,7 @@
-// var tran= angular.module("transmit", ['ui.router']);
+'use strict';//严格模式
 angular.module('transmit',['ui.router'])
 .config(function ($stateProvider, $urlRouterProvider) {
-
+//渲染页面
      $urlRouterProvider.when("", "/Home");
 
      $stateProvider
@@ -19,18 +19,75 @@ angular.module('transmit',['ui.router'])
             templateUrl: "Student.html",
             controller:"mycon"
         })
+        .state("Home.Upload",{
+            url:"/Upload",
+            templateUrl:"upload.html",
+            controller:"upload"
+        })
 })
 .controller('mycon', function($scope,$http) {
-    $http({
-        method:'GET',
-        url:'/carrots-admin-ajax/a/article/search',
-    })
-    .then(function successCallback(response){
-         $scope.a = response.data.data;
-         console.log($scope.a);
-         console.log(response);
-    });
+    $scope.page="1";
+    $scope.size="6";
+    $scope.papes=1;
+    $scope.StartDate='';
+    $scope.EndDate='';
+    $scope.type='';
+    $scope.status='';
+    $scope.Determine=function() {
+        if ($scope.StartDate=='') {
+            $scope.Start=''
+        }else{
+            $scope.Start=new Date($scope.StartDate).getTime()
+        };
+        if ( $scope.EndDate=='') {
+            $scope.End=''
+        }else {
+             $scope.End=new Date($scope.EndDate).getTime()
+        }
+        console.log("page="+$scope.page+"&size="+$scope.size+'&startAt='+$scope.Start+'&endAt='+$scope.End+'&type='+$scope.type+'&status='+$scope.status);
+        $http({
+            method:'GET',
+            url: "/carrots-admin-ajax/a/article/search?page="+$scope.page+"&size="
+            +$scope.size+'&startAt='+$scope.Start+'&endAt='+$scope.End+'&type='+$scope.type+'&status='+$scope.status
+            })
+         .then(function successCallback(response){
+            $scope.a = response.data.data;  //向后台取值
+            $scope.size= response.data.data.size;
+            $scope.Num=response.data.data.total;
+            $scope.total_page=Math.ceil($scope.Num/$scope.size);
+            $scope.pages =new Array($scope.total_page);
+            /* $scope.page=response.data.data.page;*/ //page 不会返回。 直接请求就可以
+            for (var i =0;i<$scope.total_page;i++) {
+                $scope.pages[i]=i+1;
+            };
+            console.log($scope.a);
+            console.log($scope.Num);
+            console.log($scope.total_page);
+            console.log($scope.pages);
+            //分页按钮
+            $scope.page_x=function() {
+                $scope.page= Number(event.target.innerText);
+                $scope.Determine();
+            }
+        })
+    }
+    //默认加载一次请求页面函数
+    $scope.Determine();
+    //搜索
+    $scope.search=function() {
+        $scope.Determine();
+    }
+    //清空
+    $scope.Eliminate=function() {
+        $scope.StartDate='';
+        $scope.EndDate='';
+        $scope.type='';
+        $scope.status='';
+        $scope.Determine();
+    }
+
 })
+//过滤
 .filter("ChangeCode",function () {
     return function (type) {
         var changed = "";
@@ -52,72 +109,61 @@ angular.module('transmit',['ui.router'])
         }
         return sta;
     }
-});
-var studentModule=angular.module("studentModule",[]);
-studentModule.controller("studentController",function($scope,$http){
-$scope.currentPage=1;
-$scope.maxPage=0;
-$scope.isLastAble="no-drop";
-$scope.isNextAble="pointer";
-$scope.searchType="s_name";
-$scope.createTable=function(data,curpage){
-$scope.students=data;
-// console.log(data);
-var arr=[];
-for(var i=1;i<=data.maxpage;i++){
-arr.push(i);
-}
-$scope.page=arr;
-$scope.currentPage=curpage;
-$scope.maxPage=data.maxpage;
-if($scope.currentPage!=1){
-$scope.isLastAble="pointer";
-}else{
-$scope.isLastAble="no-drop";
-}
-if($scope.currentPage!=$scope.maxPage){
-$scope.isNextAble="pointer";
-}else{
-$scope.isNextAble="no-drop";
-}
-};
-$scope.searchStu=function(curpage,eachpage){
-$scope.maxPage=0;
-$http.post("/students/searchStudent",{type:$scope.searchType,val:$scope.searchVal,curpage:curpage,eachpage:eachpage})
-.success(function(data){
-$scope.createTable(data,curpage);
 })
-};
-$scope.searchStu(1,5);
-$scope.toLastPage=function(){
-if($scope.currentPage!=1){
-$scope.searchStu($scope.currentPage-1,5);
-}else{
-return 0;
-}
-};
-$scope.toNextPage=function(){
-if($scope.currentPage!=$scope.maxPage){
-$scope.searchStu($scope.currentPage+1,5);
-}else{
-return 0;
-}
-};
-$scope.deleteStu=function(id){
-$http.get("/students/deleteStudent?id="+id+"").success(function(data){
-$scope.searchStu(1,5);
+.filter("Sta_edit",function() {
+    return function(status) {
+        var Sta_edit="";
+        switch(status){
+            case 1: Sta_edit= "上线";break;
+            case 2: Sta_edit="下线";break;
+        }
+        return Sta_edit;
+    }
 })
-};
-$scope.addStu=function(){
-$http.post("/students/addStudent",{name:$scope.addName,age:$scope.addAge,sex:$scope.addSex})
-.success(function(data){
-$scope.searchStu($scope.maxPage,5);
-})
-};
-$scope.changeStu=function(){
-$http.post("/students/changeStudent",{name:$scope.configName,age:$scope.configAge,sex:$scope.configSex,id:$scope.configId}).success(function(data){
-$scope.searchStu($scope.currentPage,5);
-})
-}
-});
+//upload的controller控制器
+.controller('upload', function($scope,$http){
+    $scope.reader = new FileReader(); //FileReader接口提供了一个异步的APl
+    //访问不同的文件 必须重新调用FileReader的函数构造 也就是重新new一个FileREader对象
+    //因为每调用一次，FileReader对象都将返回一个新的FileReader实例，只有这样，才能实现访问不同文件的数据
+    $scope.upload = function(files) {
+        document.getElementById('td_tr').style.display='table-row-group';
+        $scope.reader.readAsDataURL(files[0]); //获取API异步读取的文件数据，另存为数据URL，并将URL绑定到IMG的src
+        $scope.reader.onload = function(e) {
+            document.getElementById("showHere").src=e.target.result;
+        };
+        $scope.show1 = 'true';
+        $scope.picData= document.getElementById('file').files[0];
+        $scope.$apply();
+        console.log($scope.picData.name);
+    };
+    $scope.Upload_immediately=function() {
+        var form = document.getElementById('form1');
+        var xhr = new XMLHttpRequest();
+        var formData =new FormData('form1');
+        var filenInput = document.getElementById('file');
+        var file =filenInput.files[0];
+        formData.append('file',file);
+        xhr.open('POST','/carrots-admin-ajax/a/u/img/task');
 
+        xhr.onload=function() {
+            if(this.status===200)
+                alert('上传成功')
+        }
+
+        xhr.send(formData);
+        xhr = null;//手动制空 防止内存泄漏！！！！ JS垃圾回收装置。
+        document.getElementById('myProgress').value="100";
+
+    };
+
+    $scope.Delete=function() {
+        $('.td_tr').css('display','none');
+    };
+
+    $scope.change=function() {
+        $('.change').css('display','block')
+    }
+    $scope.Submit=function() {
+
+    }
+})

@@ -2,13 +2,13 @@
  * Created by 韩阳 on 2017/4/2.
  */
 //读取字符串再转为数组
-oNn = localStorage.sth;
+oNn= sessionStorage.arrTostring;//读取本地
 Nn = JSON.parse(oNn);
 console.log("读取字符串再转为数组" + oNn + "长度"+Nn.length);
-var ClicksNum = 1; //这变量是1 点击后的人数？
-var TotalNum = 0; //这变量等于0  总人数？
+var ClicksNum = 1;//点击次数
+var TotalNum = 0; //
 function but() {
-    if (ClicksNum >= (2*Nn.length)) { //如果1 >= 2乘以人数
+    if (ClicksNum >= (2*Nn.length)) { //如果1 >= 2乘以人数 如果是四个人那要点击7次（因为是>=所以2*是8）
         return location.href = "7-2/Task7-2.html";//身份查看完后进入下一个界面
     }
     else {
@@ -26,7 +26,7 @@ function but() {
 //偶数显示查看身份页
 function CheckiDentity() {
     document.getElementById("S-identity").innerHTML=("查看" + (TotalNum + 2) + "号身份"); //0循环＋1+2
-    document.getElementById("sp").innerHTML=( TotalNum  + 2);//0循环加一+2 
+    document.getElementById("sp").innerHTML=( TotalNum  + 2);//0循环加一+2
     document.getElementById("p-img").src="img/2.png"
     TotalNum++;
     console.log("编号" + TotalNum);
