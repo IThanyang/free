@@ -1,0 +1,121 @@
+	<div class="container">
+		<!-- <div class="row pd-bottom-2">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label class="control-label col-md-4">
+						发布时间
+					</label>
+					<div class="col-md-8">
+						<input type="date" class="form-control"  >
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label class="control-label col-md-4">
+						—
+					</label>
+					<div class="col-md-8">
+						<input type="date" class="form-control" ng-model='EndDate'>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row pd-bottom-2">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label class="control-label col-md-4 word-spacing-25">
+						类型
+					</label>
+					<div class="col-md-8">
+						<select class="form-control" ng-model='type'>
+							<option value>全部</option>
+							<option value="0">首页Banner</option>
+							<option value="1">找职位Banner</option>
+							<option value="2">找精英Banner</option>
+							<option value="3">行业大图</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="from-group">
+					<label class="control-label col-md-4 word-spacing-25">
+					状态
+					</label>
+					<div class="col-md-8">
+						<select class="form-control">
+							<option value>全部</option>
+							<option value="2">上线</option>
+							<option value="1">草稿</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<div class="row">
+			<div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 pull-right text-right">
+				<button type="button" class="btn btn-danger" >清空</button>
+				<button type="button" class="btn btn-success" >搜索</button>
+			</div>
+		</div>
+	<div class="main">
+		<div class="main-top text-right">
+			公司列表
+			<button type="button" class="btn btn-success" ui-sref="Home.Upload" href="#/upload">
+				+新增
+			</button>
+		</div>
+	</div>
+	<table class="table table-striped ">
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>公司名称</th>
+				<th>公司行业</th>
+				<th>地区</th>
+				<th>融资规模</th>
+				<th>认证状态</th>
+				<th>冻结状态</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="x in vm.a.data track by $index">
+				<td ng-bind="x.id"></td>
+				<td ng-bind="x.name"></td>
+				<td ng-bind="x.industryList | change_industry"></td>
+				<td>{{x.city | change_city}}-{{x.county | change_county}}</td>
+				<td ng-bind="x.financing | change_financing"></td>
+				<td ng-bind="x.approved | change_approved"></td>
+				<td ng-bind="x.freezed | change_freezed"></td>
+				<!-- <td ng-bind="x.approved | change_modal_approved"></td> -->
+				<td>
+					<a type="button" class="btn" ng-bind="">职位</a>
+					<a type="button" class="btn">解除</a>
+					<a type="button" class="btn">冻结</a>
+					<a type="button" class="btn">删除</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+		每页显示
+	<input type="text"  ng-model="size"/>
+		条
+	<button ng-click="oPage()">	首页</button>
+
+	<button><</button>
+		<button ng-repeat="y in pages"  ng-click="page_x()">
+			{{y}}
+		</button>
+	<button>></button>
+	<button Shadowe()>末页</button>
+		去第
+	<input type="text" ng-model="page"/>
+		页
+	<button ng-click="Determine()">	确定</button>

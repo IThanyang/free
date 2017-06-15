@@ -1,0 +1,65 @@
+<div class="header">
+    <div class="header-left">萝卜多后台管理系统</div>
+</div>
+
+<div class="sidebar_wrap">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+       <!--  <div class="panel panel-default">
+           <div class="panel-heading" role="tab" id="headingOne">
+               <h4 class="panel-title">
+                   <button class="collapsed_style" ui-sref=".welcome">
+                       欢迎页面
+                   </button>
+               </h4>
+           </div>
+       </div> -->
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <button class="collapsed collapsed_style" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+                        信息管理
+                    </button>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body" ui-sref="homepage.sidebar.company">
+                    公司信息
+                </div>
+                <div class="panel-body">
+                    职位信息
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                    <button class="collapsed collapsed_style" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        内容管理
+                    </button>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                    Articlt管理
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <button class="collapsed collapsed_style" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        后台管理
+                    </button>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    XXX
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ui-view class="main">
+
+</div>

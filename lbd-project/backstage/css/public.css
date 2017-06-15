@@ -1,0 +1,47 @@
+/* 侧边栏 */
+.panel-group,.sidebar_wrap{
+	width: 200px;
+}
+.panel-default>.panel-heading,.panel-group,.collapsed,.sidebar_wrap,.header-left{
+	background-color: #FFFF99;
+}
+.panel-group{
+	margin:0 auto;
+}
+.panel-body{
+	background-color: #FFFFCC;
+}
+.collapsed_style{
+	border: none;
+	font-size: 2rem;
+	text-align: center;
+	margin: 0 auto;
+}
+.sidebar_wrap{
+	text-align: center;
+	width: 230px;
+	float: left;
+	padding-top: 30px;
+	padding-bottom: 1000px;
+	margin-bottom: -2000px;
+}
+.header{
+	background-color:#ccc;
+}
+.header-left{
+	width: 230px;
+	font-size: 2.5rem;
+	padding: 20px 0;
+	border-right: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+	text-align: center;
+}
+/*主页面*/
+.main{
+	width: 1035px;
+	float: right;
+}
+
+th,td{
+	text-align: center!important;
+}
